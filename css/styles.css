@@ -19,12 +19,12 @@ body{
 }
 
 /* Accent color for highlights */
-.accent {
+.accent{
     color: #FF8A00;
 }
 
 /* Alt class; subtle gradient for Apple-esque look */
-.accent2 {
+.accent2{
     background: linear-gradient(90deg, #eb04ebbd, #FF8A00);
     background-clip: text;
     -webkit-background-clip: text;
@@ -32,7 +32,7 @@ body{
 }
 
 /* Alt class; subtle gradient for Apple-esque look */
-.accent3 {
+.accent3{
     font-family:'Inter',sans-serif,italics;
     background: linear-gradient(90deg, #ffd000ea, #cfab09e0);
     background-clip: text;
