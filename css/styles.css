@@ -26,6 +26,7 @@ body{
 /* Alt class; subtle gradient for Apple-esque look */
 .accent2 {
     background: linear-gradient(90deg, #eb04ebbd, #FF8A00);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -34,6 +35,7 @@ body{
 .accent3 {
     font-family:'Inter',sans-serif,italics;
     background: linear-gradient(90deg, #ffd000ea, #cfab09e0);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
