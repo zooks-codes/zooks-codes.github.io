@@ -1,0 +1,256 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#0b0b0b;
+
+    color:white;
+
+}
+
+nav{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    padding:25px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:100;
+
+    background:rgba(11,11,11,.65);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.logo{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+}
+
+nav ul{
+
+    display:flex;
+
+    gap:35px;
+
+    list-style:none;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    opacity:.8;
+
+}
+
+nav a:hover{
+
+    opacity:1;
+
+}
+
+/* ref class to 'hero' in the index.html file; adds a background image to it.*/
+.hero{
+
+    height:100vh;
+
+    background:url("../images/speed scared.jpg") center center/cover no-repeat;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.overlay{
+
+    width:700px;
+
+    text-align:center;
+
+}
+
+.overlay h1{
+
+    font-size:5rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+.overlay p{
+
+    margin-top:25px;
+
+    color:#b5b5b5;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+}
+
+.button{
+
+    margin-top:45px;
+
+    display:inline-block;
+
+    background:white;
+
+    color:black;
+
+    text-decoration:none;
+
+    padding:18px 38px;
+
+    border-radius:100px;
+
+    font-weight:600;
+
+}
+
+.featured{
+
+    padding:120px 8%;
+
+}
+
+.featured h2{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+    font-size:2.8rem;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+.card{
+
+    background:#161616;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+}
+
+.card h3{
+
+    padding:30px;
+
+}
+
+.about{
+
+    padding:120px 8%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.about h2{
+
+    font-size:2.8rem;
+
+    margin-bottom:25px;
+
+}
+
+.about p{
+
+    color:#b5b5b5;
+
+    line-height:1.9;
+
+    font-size:1.1rem;
+
+}
+
+footer{
+
+    padding:60px;
+
+    text-align:center;
+
+    color:#777;
+
+}
+
+@media(max-width:900px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.overlay h1{
+
+font-size:3rem;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+}
