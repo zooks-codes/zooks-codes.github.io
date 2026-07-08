@@ -18,6 +18,26 @@ body{
 
 }
 
+/* Accent color for highlights */
+.accent {
+    color: #FF8A00;
+}
+
+/* Alt class; subtle gradient for Apple-esque look */
+.accent2 {
+    background: linear-gradient(90deg, #eb04ebbd, #FF8A00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Alt class; subtle gradient for Apple-esque look */
+.accent3 {
+    font-family:'Inter',sans-serif,italics;
+    background: linear-gradient(90deg, #ffd000ea, #cfab09e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 nav{
 
     position:fixed;
@@ -123,21 +143,35 @@ nav a:hover{
 
 .button{
 
-    margin-top:45px;
+    display:inline-flex;
 
-    display:inline-block;
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 42px;
+
+    border-radius:999px;
 
     background:white;
 
-    color:black;
+    color:#111;
 
     text-decoration:none;
 
-    padding:18px 38px;
+    font-weight:700;
 
-    border-radius:100px;
+    transition:.35s;
 
-    font-weight:600;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.45);
 
 }
 
