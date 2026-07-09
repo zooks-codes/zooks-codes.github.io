@@ -1,125 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porky Productions – Cinematic Films & Photography</title>
 
-    <title>Porky Productions</title>
+  <!-- SEO -->
+  <meta name="description"
+        content="Zooks – creator behind Porky Productions. Cinematic film, photography & videography for the bold, the daring, the doom‑scrollers.">
+  <link rel="canonical" href="https://porkyproductions.com/">
 
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<nav>
+  <!-- =======================
+       Navigation (with SVG icons)
+  ======================= -->
+  <nav role="navigation">
+    <div class="logo">Zooks</div>
 
-    <div class="logo">
-        Zooks | Video Editor | Photographer | Videographer
-    </div>
+    <!-- Mobile burger -->
+    <button class="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
 
-    <ul>
-
-        <li><a href="#">Home</a></li>
-
-        <li><a href="#featured">Work</a></li>
-
-        <li><a href="#about">About</a></li>
-
-        <li><a href="#">Contact</a></li>
-
+    <!-- Nav links – icons + text -->
+    <ul class="menu">
+      <li>
+        <a href="#" aria-label="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="feather feather-home"><path d="M3 9L12 2l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#featured" aria-label="Work">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="feather feather-briefcase"><rect x="3" y="11" width="18" height="10" rx="2" ry="2"></rect><polyline points="3 11 12 6 21 11"></polyline></svg>
+          Work
+        </a>
+      </li>
+      <li>
+        <a href="#about" aria-label="About">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          About
+        </a>
+      </li>
+      <li>
+        <a href="#contact" aria-label="Contact">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="feather feather-mail"><path d="M4 4h16v16H4z"></path><polyline points="22,4 12,13 2,4"></polyline></svg>
+          Contact
+        </a>
+      </li>
     </ul>
+  </nav>
 
-</nav>
-
-<header class="hero">
-
+  <!-- =======================
+       Hero
+  ======================= -->
+  <header class="hero">
     <div class="overlay">
-
-        <h1>You don't remember your last scroll.<br><br>
-            <span class="accent2">Except this one.</span>
-        </h1>
-
-        <p>
-            Cinematic excellence across all mediums for brainrot of the<br>
-            of the <span class="accent3">highest quality</span>.
-        </p>
-
-        <!-- Jump to 'works' button -->
-        <section id="featured" class="featured">
-        <a href="#featured" class="button">See the horrors</a>
-        </section>
-
+      <h1>You don't remember your last scroll.<br>
+        <span class="accent2">Except this one.</span>
+      </h1>
+      <p>Cinematic excellence across all mediums for brainrot of the <span class="accent2">highest quality.</span></p>
+      <a href="#featured" class="button">See the horrors</a>
     </div>
+  </header>
 
-</header>
-
-<section class="featured">
-
-<h2>Featured Work</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<img src="images/DSCF7439-2.jpg">
-
-<h3>THE BEST WORK</h3>
-
-</div>
-
-<div class="card">
-
-<img src="images/DSCF1074.JPG">
-
-<h3>ALL THE TIME</h3>
-
-</div>
-
-<div class="card">
-
-<img src="images/DSCF0439.jpg">
-
-<h3>70% OF THE TIME</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="about" class="about">
-    <!-- 'About' section content -->
-    <div class="about-text">
-            <h2>| ABOUT ME | </h2>
-        <p>
-            Hi, I'm zooks.
-
-            I'm the creator behind Porky Productions.<br><br>
-
-            I produce cinematic films and photography that help
-            remind people that there's nothing more to life than doomscrolling 18 hours a week.
-        </p>    
-
+  <!-- =======================
+       Featured Work
+  ======================= -->
+  <section id="featured" class="featured">
+    <h2>Featured Work</h2>
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card">
+        <img
+          src="images/DSCF7439-2.jpg"
+          srcset="
+            images/DSCF7439-2_small.jpg  400w,
+            images/DSCF7439-2_medium.jpg 800w,
+            images/DSCF7439-2_large.jpg 1200w"
+          sizes="(max-width: 600px) 100vw, 400px"
+          alt="Behind‑the‑scenes shot of a set"
+          loading="lazy"
+        >
+        <h3>THE BEST WORK</h3>
+      </article>
+      <!-- Card 2 -->
+      <article class="card">
+        <img
+          src="images/DSCF1074.JPG"
+          srcset="
+            images/DSCF1074_small.jpg  400w,
+            images/DSCF1074_medium.jpg 800w,
+            images/DSCF1074_large.jpg 1200w"
+          sizes="(max-width: 600px) 100vw, 400px"
+          alt="Crew on set under neon lights"
+          loading="lazy"
+        >
+        <h3>ALL THE TIME</h3>
+      </article>
+      <!-- Card 3 -->
+      <article class="card">
+        <img
+          src="images/DSCF0439.jpg"
+          srcset="
+            images/DSCF0439_small.jpg  400w,
+            images/DSCF0439_medium.jpg 800w,
+            images/DSCF0439_large.jpg 1200w"
+          sizes="(max-width: 600px) 100vw, 400px"
+          alt="Candid street photography"
+          loading="lazy"
+        >
+        <h3>70% OF THE TIME</h3>
+      </article>
     </div>
+  </section>
 
-</section>
+  <!-- =======================
+       About
+  ======================= -->
+  <section id="about" class="about">
+    <h2>| ABOUT ME |</h2>
+    <p>I'm Zooks. I'm the creator behind Porky Productions. I produce cinematic films and photography that remind people that there's nothing more to life than doomscrolling 18 hours a week.</p>
+  </section>
 
-<footer>
+  <!-- =======================
+       Contact (placeholder)
+  ======================= -->
+  <section id="contact" class="contact">
+    <h2>| CONTACT |</h2>
+    <p>Drop me a line: <a href="mailto:zooks@porkyproductions.com">zooks@porkyproductions.com</a></p>
+  </section>
 
-<p>
+  <!-- =======================
+       Footer
+  ======================= -->
+  <footer>
+    <p>© 2026 Porky Productions</p>
+  </footer>
 
-© 2026 Porky Productions
+  <!-- =======================
+       JSON‑LD Structured Data
+  ======================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Porky Productions",
+    "url": "https://porkyproductions.com",
+    "logo": "https://porkyproductions.com/images/logo.svg",
+    "description": "Zooks – creator behind Porky Productions. Cinematic film, photography & videography for the bold, the daring, the doom‑scrollers.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-555-5555",
+      "contactType": "customer support",
+      "email": "zooks@porkyproductions.com"
+    }
+  }
+  </script>
 
-</p>
-
-</footer>
-
-<script src="js/main.js"></script>
-
+  <!-- =======================
+       Scripts
+  ======================= -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>

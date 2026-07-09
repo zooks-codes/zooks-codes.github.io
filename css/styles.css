@@ -1,292 +1,147 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ======================================================
+   1. Variables
+   ====================================================== */
+:root {
+  /* Colours */
+  --bg: #0b0b0b;
+  --bg-card: #161616;
+  --text: #ffffff;
+  --text-muted: #b5b5b5;
+  --accent: #FF8A00;
+  --accent-grad: linear-gradient(90deg, #eb04ebbd, var(--accent));
+  --accent-text-grad: linear-gradient(90deg, #ffd000ea, #cfab09e0, var(--accent));
+
+  /* Typography */
+  --font: 'Inter', sans-serif;
+  --fs-base: 1rem;   /* 16px */
+  --fs-h1: 5rem;
+  --fs-h2: 2.8rem;
+  --fs-h3: 1.5rem;
+  --fs-body: 1.1rem;
+  --fs-btn: 1rem;
+
+  /* Layout */
+  --spacer: 8%;
+  --gap: 40px;
+  --br: 20px;
+
+  /* Timing */
+  --tr: .35s ease;
 }
 
-html{
-    scroll-behavior:smooth;
+/* ======================================================
+   2. Reset & Base
+   ====================================================== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: var(--fs-base);
 }
 
-body{
-
-    font-family:'Inter',sans-serif;
-
-    background:#0b0b0b;
-
-    color:white;
-
+/* ======================================================
+   3. Navigation
+   ====================================================== */
+nav {
+  position:fixed; top:0; left:0; width:100%;
+  padding:25px var(--spacer);
+  display:flex; justify-content:space-between; align-items:center;
+  background:rgba(11,11,11,.65);
+  backdrop-filter:blur(12px);
+  z-index:100;
 }
+nav .logo { font-weight:700; font-size:1.3rem; }
 
-/* Accent color for highlights */
-.accent{
-    color: #FF8A00;
+nav .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+nav .burger span{ width:25px; height:3px; background:var(--text); border-radius:2px; }
+
+nav .menu { display:flex; gap:35px; list-style:none; }
+nav .menu li a { 
+  color:var(--text); text-decoration:none; opacity:.8; 
+  transition:opacity var(--tr);
+  display:flex; align-items:center; gap:8px;
 }
-
-/* Alt class; subtle gradient for Apple-esque look */
-.accent2{
-    background: linear-gradient(90deg, #eb04ebbd, #FF8A00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Alt class; subtle gradient for Apple-esque look */
-.accent3{
-    font-family:'Inter',sans-serif,italics;
-    background: linear-gradient(90deg, #ffd000ea, #cfab09e0);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-nav{
-
-    position:fixed;
-
-    top:0;
-
-    width:100%;
-
-    padding:25px 8%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    z-index:100;
-
-    background:rgba(11,11,11,.65);
-
-    backdrop-filter:blur(12px);
-
-}
-
-.logo{
-
-    font-size:1.2rem;
-
-    font-weight:700;
-
-}
-
-nav ul{
-
-    display:flex;
-
-    gap:35px;
-
-    list-style:none;
-
-}
-
-nav a{
-
-    color:white;
-
-    text-decoration:none;
-
-    opacity:.8;
-
-}
-
-nav a:hover{
-
-    opacity:1;
-
-}
-
-/* ref class to 'hero' in the index.html file; adds a background image to it.*/
-.hero{
-
-    height:100vh;
-
-    background:url("../images/speed scared.jpg") center center/cover no-repeat;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-.overlay{
-
-    width:700px;
-
-    text-align:center;
-
-}
-
-.overlay h1{
-
-    font-size:5rem;
-
-    font-weight:800;
-
-    line-height:1;
-
-}
-
-.overlay p{
-
-    margin-top:25px;
-
-    color:#b5b5b5;
-
-    font-size:1.2rem;
-
-    line-height:1.8;
-
-}
-
-.button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:18px 42px;
-
-    border-radius:999px;
-
-    background:white;
-
-    color:#111;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.35s;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-
-}
-
-.button:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:0 25px 45px rgba(0,0,0,.45);
-
-}
-
-.featured{
-
-    padding:120px 8%;
-
-}
-
-.featured h2{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-    font-size:2.8rem;
-
-}
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:40px;
-
-}
-
-.card{
-
-    background:#161616;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-}
-
-.card img{
-
-    width:100%;
-
-    height:350px;
-
-    object-fit:cover;
-
-}
-
-.card h3{
-
-    padding:30px;
-
-}
-
-.about{
-
-    padding:120px 8%;
-
-    max-width:900px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.about h2{
-
-    font-size:2.8rem;
-
-    margin-bottom:25px;
-
-}
-
-.about p{
-
-    color:#b5b5b5;
-
-    line-height:1.9;
-
-    font-size:1.1rem;
-
-}
-
-footer{
-
-    padding:60px;
-
-    text-align:center;
-
-    color:#777;
-
-}
+nav .menu li a:hover,
+nav .menu li a:focus-visible{ opacity:1; }
 
 @media(max-width:900px){
-
-.grid{
-
-grid-template-columns:1fr;
-
+  nav .menu{ display:none; }
+  nav .burger{ display:flex; }
+  nav .menu.show{ display:flex; flex-direction:column; position:absolute; 
+                  right:var(--spacer); top:60px; background:var(--bg-card);
+                  border-radius:var(--br); padding:20px; }
+  nav .menu.show a{ margin:10px 0; }
 }
 
-.overlay h1{
+/* ======================================================
+   4. Hero
+   ====================================================== */
+.hero{
+  height:100vh; background:url("../images/speed scared.jpg") center/cover no-repeat;
+  display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;
+}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.8));
+}
+.overlay{ text-align:center; z-index:1; max-width:800px; padding:0 1rem; }
+.overlay h1{ font-size:var(--fs-h1); font-weight:800; line-height:1.1; margin-bottom:.25em; }
+.overlay h1 .accent2{ color:transparent; background:var(--accent-grad); background-clip:text; -webkit-background-clip:text; }
+.overlay h1 .accent3{ color:transparent; background:var(--accent-text-grad); background-clip:text; -webkit-background-clip:text; }
+.overlay p{ color:var(--text-muted); font-size:var(--fs-body); margin:25px 0 1.5rem; }
+.button{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:18px 42px; border-radius:999px; background:var(--text); color:#111;
+  text-decoration:none; font-weight:700; font-size:var(--fs-btn);
+  transition:var(--tr); box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+.button:hover, .button:focus-visible{ transform:translateY(-5px); box-shadow:0 25px 45px rgba(0,0,0,.45); }
+@media(max-width:900px){ .overlay h1{ font-size:3rem; } }
 
-font-size:3rem;
+/* ======================================================
+   5. Featured Work
+   ====================================================== */
+.featured{ padding:120px var(--spacer); text-align:center; background:var(--bg); }
+.featured h2{ font-size:var(--fs-h2); margin-bottom:60px; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:var(--gap); }
+.card{ background:var(--bg-card); border-radius:var(--br); overflow:hidden; 
+       transition:transform var(--tr); }
+.card:hover, .card:focus-within{ transform:translateY(-5px); }
+.card img{ width:100%; height:350px; object-fit:cover; }
+.card h3{ padding:30px; font-size:var(--fs-h3); color:var(--accent); }
 
+/* ======================================================
+   6. About & Contact
+   ====================================================== */
+.about, .contact{
+  padding:120px var(--spacer); max-width:900px; margin:auto; text-align:center;
+}
+.about h2, .contact h2{ font-size:var(--fs-h2); margin-bottom:25px; }
+.about p, .contact p{ color:var(--text-muted); font-size:var(--fs-body); line-height:1.9; }
+
+/* ======================================================
+   7. Footer
+   ====================================================== */
+footer{ padding:60px var(--spacer); text-align:center; color:#777; }
+footer p{ font-size:var(--fs-body); }
+
+/* ======================================================
+   8. Scroll‑Triggered Fade‑in Animation
+   ====================================================== */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(30px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
-nav ul{
-
-display:none;
-
-}
-
+/* ======================================================
+   9. Dark‑mode fallback (prefers-color-scheme)
+   ====================================================== */
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0b0b0b; --bg-card:#161616; --text:#ffffff; }
 }
