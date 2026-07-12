@@ -1,6 +1,6 @@
-/* ======================================================
+/* ==================================================
    1. Variables
-   ====================================================== */
+   ================================================== */
 :root {
   /* Colours */
   --bg: #0b0b0b;
@@ -8,12 +8,12 @@
   --text: #ffffff;
   --text-muted: #b5b5b5;
   --accent: #FF8A00;
-  --accent-grad: linear-gradient(90deg, #eb04ebbd, var(--accent));
-  --accent-text-grad: linear-gradient(90deg, #ffd000ea, #cfab09e0, var(--accent));
+  --accent-grad: linear-gradient(90deg, #eb04ebd1, var(--accent));
+  --accent-text-grad: linear-gradient(90deg, #ffe100, #ff0000e0);
 
   /* Typography */
   --font: 'Inter', sans-serif;
-  --fs-base: 1rem;   /* 16px */
+  --fs-base: 1rem;          /* 16px */
   --fs-h1: 5rem;
   --fs-h2: 2.8rem;
   --fs-h3: 1.5rem;
@@ -21,17 +21,22 @@
   --fs-btn: 1rem;
 
   /* Layout */
-  --spacer: 8%;
+  --spacer: 4%;
   --gap: 40px;
   --br: 20px;
 
   /* Timing */
   --tr: .35s ease;
+
+  /* Photogrid variables*/
+  --photo-width: 0px;
+  --photo-height: 260px;
+  --gap: 20px;
 }
 
-/* ======================================================
+/* ==================================================
    2. Reset & Base
-   ====================================================== */
+   ================================================== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
@@ -42,53 +47,54 @@ body {
   font-size: var(--fs-base);
 }
 
-/* ======================================================
+/* ==================================================
    3. Navigation
-   ====================================================== */
+   ================================================== */
 nav {
   position:fixed; top:0; left:0; width:100%;
   padding:25px var(--spacer);
-  display:flex; justify-content:space-between; align-items:center;
+  display:flex; align-items:center;
   background:rgba(11,11,11,.65);
   backdrop-filter:blur(12px);
   z-index:100;
 }
-nav .logo { font-weight:700; font-size:1.3rem; }
 
-nav .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+/* 3‑1. Centered logo using flex‑order */
+nav .logo { font-weight:700; font-size:1.3rem; order:2; flex:1; text-align:center; }
+
+nav .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; order:1; }
 nav .burger span{ width:25px; height:3px; background:var(--text); border-radius:2px; }
 
-nav .menu { display:flex; gap:35px; list-style:none; }
-nav .menu li a { 
-  color:var(--text); text-decoration:none; opacity:.8; 
-  transition:opacity var(--tr);
-  display:flex; align-items:center; gap:8px;
-}
-nav .menu li a:hover,
-nav .menu li a:focus-visible{ opacity:1; }
+nav .menu { display:flex; gap:35px; list-style:none; order:3; }
+nav .menu li a { color:var(--text); text-decoration:none; opacity:.8; transition:opacity var(--tr); display:flex; align-items:center; gap:8px; }
+nav .menu li a:hover, .menu li a:focus-visible{ opacity:1; }
 
 @media(max-width:900px){
   nav .menu{ display:none; }
   nav .burger{ display:flex; }
-  nav .menu.show{ display:flex; flex-direction:column; position:absolute; 
-                  right:var(--spacer); top:60px; background:var(--bg-card);
-                  border-radius:var(--br); padding:20px; }
+  nav .menu.show{ display:flex; flex-direction:column; position:absolute; right:var(--spacer); top:60px; background:var(--bg-card); border-radius:var(--br); padding:20px; }
   nav .menu.show a{ margin:10px 0; }
 }
 
-/* ======================================================
-   4. Hero
-   ====================================================== */
+/* ==================================================
+4. Hero
+================================================== */
 .hero{
-  height:100vh; background:url("../images/speed scared.jpg") center/cover no-repeat;
-  display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;
+  height:100vh; position:relative; overflow:hidden;
+  display:flex; justify-content:center; align-items:center;
+}
+.hero-video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
 }
 .hero::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.8));
 }
-.overlay{ text-align:center; z-index:1; max-width:800px; padding:0 1rem; }
+.overlay{ position:relative; z-index:1; text-align:center; max-width:1400px; margin:auto; padding:0 1rem; }
 .overlay h1{ font-size:var(--fs-h1); font-weight:800; line-height:1.1; margin-bottom:.25em; }
+
+/* **slower hero intro** */
+.overlay h1, .overlay p, .button{ animation-duration:1.4s; }
 .overlay h1 .accent2{ color:transparent; background:var(--accent-grad); background-clip:text; -webkit-background-clip:text; }
 .overlay h1 .accent3{ color:transparent; background:var(--accent-text-grad); background-clip:text; -webkit-background-clip:text; }
 .overlay p{ color:var(--text-muted); font-size:var(--fs-body); margin:25px 0 1.5rem; }
@@ -101,47 +107,262 @@ nav .menu li a:focus-visible{ opacity:1; }
 .button:hover, .button:focus-visible{ transform:translateY(-5px); box-shadow:0 25px 45px rgba(0,0,0,.45); }
 @media(max-width:900px){ .overlay h1{ font-size:3rem; } }
 
-/* ======================================================
-   5. Featured Work
-   ====================================================== */
+/* ==================================================
+5. Featured Work
+================================================== */
 .featured{ padding:120px var(--spacer); text-align:center; background:var(--bg); }
-.featured h2{ font-size:var(--fs-h2); margin-bottom:60px; }
-.grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:var(--gap); }
-.card{ background:var(--bg-card); border-radius:var(--br); overflow:hidden; 
-       transition:transform var(--tr); }
-.card:hover, .card:focus-within{ transform:translateY(-5px); }
-.card img{ width:100%; height:350px; object-fit:cover; }
-.card h3{ padding:30px; font-size:var(--fs-h3); color:var(--accent); }
+.featured h2{ font-size:var(--fs-h2); margin-bottom:30px; }
 
-/* ======================================================
-   6. About & Contact
-   ====================================================== */
+
+/* Featured work video background underlay*/
+.bgunderlay{
+  height:100vh; position:relative; overflow:hidden;
+  display:flex; justify-content:center; align-items:center;
+}
+.bgunderlay-video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+}
+.bgunderlay::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.8));
+}
+
+/* Social icons row */
+.social-icons{ display:flex; justify-content:center; gap:20px; margin-bottom:30px; }
+.social-icons a{
+  color:var(--text);
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  opacity:.8;
+  transition:opacity .3s ease;
+}
+.social-icons a:hover{ opacity:1; }
+
+/* 3x3. Grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);   /* 3 columns only */
+  gap:var(--gap);
+}
+.card{
+  background:var(--bg-card);
+  border-radius:var(--br);
+  overflow:hidden;
+  transition:transform .35s ease;
+  /* removing this line vanishes the cards for some reason */
+  transform-style:preserve-3d;  
+}
+.card:hover, .card:focus-within{ transform:translateY(-5px); }
+
+.card img,
+.card video{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  display:block;
+}
+
+/* Card title */
+.card h3{ padding:15px; font-size:var(--fs-h3); color:var(--accent); }
+
+/* ==================================================
+Photography portfolio section
+================================================== */
+/* Photo grid */
+#photos {
+  padding: 120px var(--spacer);
+  background: var(--bg);
+  text-align: center;
+}
+
+#photos h2 {font-size: var(--fs-h2); margin-bottom: 30px; }
+
+/* ======== 5.1 Photography grid ======== */
+#photos .grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  /* grid-template-columns: 360px 720px 360px; */
+  grid-template-rows: auto auto;
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 2200px;
+}
+
+#photos {
+  padding: 80px 0;                         /* less vertical padding */
+  background: var(--bg);
+  text-align: center;
+}
+
+/* common photo styling */
+#photos .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 !important;  /* remove border radius */
+  transition: transform .4s ease;
+}
+#photos .photo:hover img {transform: scale(1.05);}
+
+/* Positioning helpers */
+.photo-left      { grid-column: 1; grid-row: 1; }
+.photo-center   { grid-column: 2; grid-row: 1; }
+.photo-right    { grid-column: 3; grid-row: 1; }
+.photo-left2    { grid-column: 1; grid-row: 2; }
+.photo-right2   { grid-column: 3; grid-row: 2; }
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 900px) {
+  #photos .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .photo-left, .photo-center, .photo-right,
+  .photo-left2, .photo-right2 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* ==================================================
+6. About & Contact
+================================================== */
 .about, .contact{
-  padding:120px var(--spacer); max-width:900px; margin:auto; text-align:center;
+  padding:120px var(--spacer);
+  max-width:900px;
+  margin:auto;
+  text-align:center;
 }
 .about h2, .contact h2{ font-size:var(--fs-h2); margin-bottom:25px; }
 .about p, .contact p{ color:var(--text-muted); font-size:var(--fs-body); line-height:1.9; }
+.about-content{ max-width:700px; margin:auto; }
+.about-content p{ margin:0 0 1.5rem; }
+.profile{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:0 auto 1.5rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  opacity:1;                     /* start hidden for fade‑in */
+}
 
-/* ======================================================
-   7. Footer
-   ====================================================== */
+/* profile photo animated on scroll (same as other .animate) */
+.profile.animate{animation-delay:0.1s;}
+
+/* ==================================================
+7. Footer
+================================================== */
 footer{ padding:60px var(--spacer); text-align:center; color:#777; }
+.footer-socials{ display:flex; justify-content:center; gap:20px; margin-bottom:15px; }
+.footer-socials a{
+  color:#777;
+  font-size:1.8rem;
+  transition:var(--tr);
+  opacity:.7;
+}
+.footer-socials a:hover{ opacity:1; }
 footer p{ font-size:var(--fs-body); }
 
-/* ======================================================
-   8. Scroll‑Triggered Fade‑in Animation
-   ====================================================== */
-@keyframes fadeInUp {
-  from { opacity:0; transform:translateY(30px); }
-  to   { opacity:1; transform:translateY(0); }
+/* ==================================================
+8. Animations
+================================================== */
+@keyframes fadeInUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
-.animate {
-  animation: fadeInUp 0.8s ease-out forwards;
+.animate{
+  animation:fadeInUp .8s ease-out forwards;
+  animation-delay:var(--delay,0s);   /* default to 0 if no custom delay */
 }
 
-/* ======================================================
-   9. Dark‑mode fallback (prefers-color-scheme)
-   ====================================================== */
-@media (prefers-color-scheme: dark) {
-  :root { --bg:#0b0b0b; --bg-card:#161616; --text:#ffffff; }
+/* ==================================================
+9. Dark‑mode fallback
+================================================== */
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b0b0b; --bg-card:#161616; --text:#ffffff; }
 }
+
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent); }
+}
+.typewriter {
+  border-right: 2px solid var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 4s steps(40, end), blink .75s step-end infinite;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: var(--fs-h2);
+}
+
+/* Social icons – change colour on hover & add a subtle ring */
+.social-icons a{
+  color:var(--text-muted);
+  transition:all .25s ease;
+  padding:4px; border-radius:50%; /* small padding for ring effect */
+}
+
+.social-icons a:hover{
+  color:var(--accent);
+  transform:scale(1.4);
+  /* ring – just an outline that grows on hover */
+  box-shadow:0 0 0 2px var(--accent);
+}
+
+/* ===================================================== */
+/*  Flip‑card (3‑D, hover flip)                           */
+/* ===================================================== */
+.flip-card {
+  perspective: 1000px;      /* establishes 3‑D context */
+  height: 350px;            /* match the other cards */
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform .6s;
+  transform-style: preserve-3d;
+}
+
+/* flip on hover – works on desktop, tap on touch */
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* common styles for front & back */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--br);
+  overflow: hidden;
+}
+
+.flip-card-front { background: var(--bg-card); }
+.flip-card-back {
+  background: var(--bg-card);
+  transform: rotateY(180deg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.flip-card-back h3 { margin-bottom: .75rem; }
+.flip-card-back p { font-size: .95rem; line-height: 1.4; }
